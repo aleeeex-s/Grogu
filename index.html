@@ -3,18 +3,17 @@
 
 <head>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Grogu • The Child</title>
+<title>Grogu • The Child</title>
 
-    <link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 
 </head>
 
@@ -38,106 +37,87 @@
 
 <section class="hero">
 
-<div class="glass">
+    <div class="glass">
 
-    <div class="left">
+        <div class="left">
 
-        <p class="subtitle">
+            <p class="subtitle">
 
-            STAR WARS
+                STAR WARS
 
-        </p>
+            </p>
 
-        <h1>
+            <h1>
 
-            GROGU
+                GROGU
 
-        </h1>
+            </h1>
 
-        <h2>
+            <h2>
 
-            THE CHILD
+                THE CHILD
 
-        </h2>
+            </h2>
 
-        <p class="description">
+            <p class="description">
 
-            Small in size.
+                Small in size.<br>
+                Infinite in power.<br>
+                Sensitive to the Force.
 
-            Infinite in power.
+            </p>
 
-            Sensitive to the Force.
+            <div class="buttons">
 
-        </p>
+                <button id="forceButton">
 
-        <div class="buttons">
+                    USE THE FORCE
 
-            <button id="forceButton">
+                </button>
 
-                USE THE FORCE
+            </div>
 
-            </button>
+            <div id="quote">
 
-            <button id="infoButton">
+                "Size matters not."
 
-                LEARN MORE
-
-            </button>
-
-        </div>
-
-        <div id="quote">
-
-            "Size matters not."
+            </div>
 
         </div>
 
-    </div>
+        <div class="right">
 
-    <div class="right">
+            <div class="light"></div>
 
-        <div class="light"></div>
+            <div class="imageContainer">
 
-        <div class="imageContainer">
+                <img
+                    id="grogu"
+                    src="img/grogu1.webp"
+                    alt="Grogu">
 
-            <img
-                id="grogu"
-                src="img/grogu1.webp"
-                alt="Grogu">
+            </div>
 
         </div>
 
     </div>
-
-</div>
 
 </section>
-
-<div class="bottomBar">
-
-<div class="thumb active">
-
-<img src="img/grogu1.webp">
-
-</div>
-
-<div class="thumb">
-
-<img src="img/grogu2.webp">
-
-</div>
-
-<div class="thumb">
-
-<img src="img/grogu3.webp">
-
-</div>
-
-</div>
 
 <div id="flash"></div>
 
 <div id="wave"></div>
+
+<!-- NUEVO EFECTO -->
+
+<div id="forceOverlay">
+
+    <img
+        id="forceGrogu"
+        src="img/grogu1.webp"
+        alt="Grogu ampliado">
+
+</div>
 
 <script src="script.js"></script>
 
