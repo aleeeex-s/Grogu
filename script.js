@@ -2,125 +2,176 @@
 // ELEMENTOS
 // ===========================
 
-const forceButton = document.querySelector(".force-button");
-const mainImage = document.querySelector(".main-image");
-const message = document.querySelector(".message");
+const forceButton = document.getElementById("forceButton");
+const grogu = document.getElementById("grogu");
+const quote = document.getElementById("quote");
 
+const flash = document.getElementById("flash");
+const wave = document.getElementById("wave");
 
-// Guardamos la imagen original
-const originalImage = mainImage.src;
+const forceOverlay = document.getElementById("forceOverlay");
+const forceGrogu = document.getElementById("forceGrogu");
+
+const particles = document.getElementById("particles");
 
 
 // ===========================
 // BOTÓN USE THE FORCE
 // ===========================
 
-
 forceButton.addEventListener("click", () => {
 
 
-    // Efecto de desaparición rápida
+    // Flash de energía
 
-    mainImage.style.opacity = "0";
+    flash.classList.add("active");
 
-    mainImage.style.transform = "scale(0.5)";
+
+    // Onda de Fuerza
+
+    wave.classList.add("active");
+
+
+    // Animación sobre Grogu principal
+
+    grogu.style.transform = "scale(1.08)";
+
+
+
+    // Mostrar Grogu ampliado
+
+    forceOverlay.classList.add("show");
+
+
+
+    // Cambiar frase
+
+    quote.innerHTML =
+    `
+    "The Force is strong with you..."
+    <br><br>
+    💚 Always.
+    `;
+
+
+
+    setTimeout(() => {
+
+        flash.classList.remove("active");
+
+        wave.classList.remove("active");
+
+
+    }, 1500);
+
+
+
+});
+
+
+
+// ===========================
+// CERRAR IMAGEN GRANDE
+// ===========================
+
+forceOverlay.addEventListener("click", () => {
+
+
+    forceOverlay.classList.remove("show");
+
+
+    grogu.style.transform = "scale(1)";
+
+
+});
+
+
+
+
+// ===========================
+// ENTRADA INICIAL
+// ===========================
+
+window.addEventListener("load", () => {
+
+
+    grogu.style.opacity = "0";
 
 
     setTimeout(() => {
 
 
-        // Restaurar la misma imagen principal
+        grogu.style.transition = "1.5s";
 
-        mainImage.src = originalImage;
-
-
-        mainImage.style.opacity = "1";
-
-        mainImage.style.transform = "scale(1)";
-
-
-        // Activar efecto Fuerza
-
-        mainImage.classList.add("force-active");
-
-
-
-        // Cambiar mensaje
-
-        message.innerHTML =
-        `
-        💚 <br>
-        "La Fuerza es fuerte contigo..."<br>
-        Pero mi corazón también.<br>
-        Siempre te elegiría a ti.
-        `;
-
-
-
-        // Quitar efecto después de unos segundos
-
-        setTimeout(()=>{
-
-            mainImage.classList.remove("force-active");
-
-        },4000);
-
-
-
-    },700);
-
-
-
-});
-
-
-
-// ===========================
-// EFECTO INICIAL DE CARGA
-// ===========================
-
-
-window.addEventListener("load",()=>{
-
-
-    mainImage.style.opacity="0";
-
-
-    setTimeout(()=>{
-
-
-        mainImage.style.transition="1s";
-
-        mainImage.style.opacity="1";
+        grogu.style.opacity = "1";
 
 
     },500);
 
 
-
 });
 
 
 
+
 // ===========================
-// EFECTO DE MOVIMIENTO SUAVE
+// MOVIMIENTO PARALLAX
 // ===========================
 
-
-document.addEventListener("mousemove",(e)=>{
-
-
-    const x = (window.innerWidth / 2 - e.clientX) / 50;
-
-    const y = (window.innerHeight / 2 - e.clientY) / 50;
+document.addEventListener("mousemove", (e) => {
 
 
+    const x =
+    (window.innerWidth / 2 - e.clientX) / 80;
 
-    mainImage.style.transform = 
+
+    const y =
+    (window.innerHeight / 2 - e.clientY) / 80;
+
+
+
+    grogu.style.transform =
     `
-    rotateY(${x}deg)
-    rotateX(${y}deg)
+    translate(${x}px, ${y}px)
     `;
 
 
 });
+
+
+
+
+// ===========================
+// CREAR PARTICULAS
+// ===========================
+
+if(particles){
+
+
+    for(let i = 0; i < 70; i++){
+
+
+        const particle = document.createElement("span");
+
+
+        particle.className = "particle";
+
+
+        particle.style.left =
+        Math.random() * 100 + "%";
+
+
+        particle.style.top =
+        Math.random() * 100 + "%";
+
+
+        particle.style.animationDelay =
+        Math.random() * 8 + "s";
+
+
+        particles.appendChild(particle);
+
+
+    }
+
+}
